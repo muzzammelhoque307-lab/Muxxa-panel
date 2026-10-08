@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MUXXA 1M!! - Free Fire Panel</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #070b14;
+      color: white;
+      padding: 25px 15px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .header {
+      text-align: center;
+      padding: 25px 10px;
+    }
+
+    .fire {
+      font-size: 38px;
+    }
+
+    h1 {
+      font-size: 34px;
+      margin-top: 8px;
+      color: #00d9ff;
+      text-shadow: 0 0 15px #00d9ff;
+    }
+
+    .subtitle {
+      color: #9da7b8;
+      margin-top: 8px;
+    }
+
+    .card {
+      background: #101827;
+      border: 1px solid #1d2a40;
+      border-radius: 16px;
+      padding: 22px;
+      margin-top: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.35);
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    input {
+      flex: 1;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #293850;
+      background: #080e19;
+      color: white;
+      outline: none;
+    }
+
+    button {
+      padding: 15px 22px;
+      border: none;
+      border-radius: 10px;
+      background: #00cfff;
+      color: #001018;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #38dcff;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      background: #141f31;
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .stat-number {
+      color: #00d9ff;
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .result {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .result h2 {
+      color: #00d9ff;
+      margin-bottom: 15px;
+    }
+
+    .info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .info-box {
+      background: #141f31;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .label {
+      color: #8e9aae;
+      font-size: 13px;
+    }
+
+    .value {
+      margin-top: 5px;
+      font-weight: bold;
+    }
+
+    .online {
+      color: #23e68a;
+    }
+
+    footer {
+      text-align: center;
+      color: #667085;
+      margin-top: 30px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .info {
+        grid-template-columns: 1fr;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <div class="fire">🔥</div>
+      <h1>MUXXA 1M!!</h1>
+      <p class="subtitle">Free Fire Player Panel</p>
+    </div>
+
+    <div class="card">
+      <h2>Search Player</h2>
+      <p class="subtitle">Enter a Free Fire UID</p>
+
+      <div class="search-box">
+        <input id="uid" type="text" placeholder="Enter Free Fire UID">
+        <button onclick="searchPlayer()">SEARCH</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div>Total Players</div>
+        <div class="stat-number">1,250+</div>
+      </div>
+
+      <div class="stat">
+        <div>Online Players</div>
+        <div class="stat-number">328</div>
+      </div>
+
+      <div class="stat">
+        <div>Total Guilds</div>
+        <div class="stat-number">540+</div>
+      </div>
+
+      <div class="stat">
+        <div>Panel Status</div>
+        <div class="stat-number">ONLINE</div>
+      </div>
+    </div>
+
+    <div id="result" class="card result">
+      <h2>Player Information</h2>
+
+      <div class="info">
+
+        <div class="info-box">
+          <div class="label">UID</div>
+          <div id="playerUid" class="value"></div>
+        </div>
+
+        <div class="info-box">
+          <div class="label">Player Name</div>
+          <div class="value">MUXXA PLAYER</div>
+        </div>
+
+        <div class="info-box">
+          <div class="label">Level</div>
+          <div class="value">65</div>
+        </div>
+
+        <div class="info-box">
+          <div class="label">Status</div>
+          <div class="value online">ONLINE</div>
+        </div>
+
+        <div class="info-box">
+          <div class="label">Guild</div>
+          <div class="value">MUXXA ESPORTS</div>
+        </div>
+
+        <div class="info-box">
+          <div class="label">Guild Level</div>
+          <div class="value">7</div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer>
+      © 2026 MUXXA 1M!! • Free Fire Panel Demo
+    </footer>
+
+  </div>
+
+  <script>
+    function searchPlayer() {
+      const uid = document.getElementById("uid").value.trim();
+
+      if (uid === "") {
+        alert("Please enter a UID");
+        return;
+      }
+
+      document.getElementById("playerUid").textContent = uid;
+      document.getElementById("result").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
